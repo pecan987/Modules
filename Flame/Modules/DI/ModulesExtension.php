@@ -229,7 +229,7 @@ class ModulesExtension extends Nette\DI\CompilerExtension
 		$router = $builder->getDefinition('router');
 
 		/** @var Nette\DI\CompilerExtension $extension */
-		$name = $this->addRouteService($extension->getReflection()->name);
+		$name = $this->addRouteService((new \ReflectionClass($extension))->name);
 		$router->addSetup('offsetSet', array(NULL, $name));
 	}
 
